@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   get 'pages/contact'
   devise_for :users
  
-  resources :posts
+  resources :posts do
+    resources :comments
+  end
 
   root "posts#index"
 

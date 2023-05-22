@@ -4,8 +4,10 @@
 
 <p class="date">
   Submited <%= time_ago_in_words(@post.created_at) %> ago
-  <%= link_to "Edit", edit_post_path(@post)%> |
-  <%= button_to("Delete", post_path, class: "btn btn-link", form: { data: { turbo_confirm: "Are you sure?" } },  method: :delete ) %>
+   <%if user_signed_in? %> 
+    <%= link_to "Edit", edit_post_path(@post)%> |
+    <%= button_to("Delete", post_path, class: "btn btn-link", form: { data: { turbo_confirm: "Are you sure?" } },  method: :delete ) %>
+    <% end %>
 </p>
 
 <p class="body">
